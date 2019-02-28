@@ -22,7 +22,7 @@ struct point {
 };
 
 
-void task();
+int task(int N,int R,int r,point* points);
 
 
 

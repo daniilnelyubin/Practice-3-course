@@ -8,11 +8,8 @@
 #include <cmath>
 
 
-void task() {
-    point *points= new point[100];
+int task(int N,int R,int r,point* points) {
     const double EPS = 1e-6;
-    int N, x, y, R, r;
-    std::cin >> N;
     if (N < 1) {
         throw std::logic_error("Count of cities <1");
     }
@@ -20,23 +17,20 @@ void task() {
     if (N > 100) {
         throw std::logic_error("Count of cities >100");
     }
-    for (int i = 0; i < N; i++)
-        std::cin >> points[i].x >> points[i].y;
-    std::cin >> R >> r;
 
-    if (r <= 0) {
-        throw std::logic_error("City radius <=0");
+    if (r < 1) {
+        throw std::logic_error("City radius <1");
     }
 
-    if (R <= 0) {
-        throw std::logic_error("Bomb radius <=0");
+    if (R < 1) {
+        throw std::logic_error("Bomb radius <1");
     }
 
     if (r > 10000) {
         throw std::logic_error("City radius >10000");
     }
 
-    if (R >= 10000) {
+    if (R > 10000) {
         throw std::logic_error("Bomb radius >10000");
     }
 
@@ -63,5 +57,5 @@ void task() {
             max = std::max({max, A, B});
         }
     }
-    std::cout << max;
+    return max;
 }
