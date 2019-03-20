@@ -35,6 +35,7 @@ int task(int N,int R,int r,point* points) {
     }
 
 
+
     R -= r;
     int max = R >= 0;
     for (int i = 0; i < N; i++) {

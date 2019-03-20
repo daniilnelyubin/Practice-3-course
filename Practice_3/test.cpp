@@ -48,6 +48,10 @@ TEST(structTest, operatorDiv2) {
     EXPECT_EQ(testPoint.x, -1);
     EXPECT_EQ(testPoint.y, -3);
 }
+//TEST(structTest, operatorDiv3) {
+//  EXPECT_THROW() point(2, 6) / 0;
+//
+//}
 
 TEST(structTest, operatorPlus1) {
     point testPoint1 = point(-2, -2);
@@ -110,10 +114,10 @@ TEST(examples,example1){
     points[0].x=0;
     points[0].y=0;
     points[1].x=0;
-    points[1].y=4;
-    points[2].x=4;
+    points[1].y=0;
+    points[2].x=0;
     points[2].y=0;
-    EXPECT_EQ(task(3,3,1,points),2);
+    EXPECT_EQ(task(3,3,1,points),0);
 }
 TEST(examples,example2){
     point *points = new point[5];
