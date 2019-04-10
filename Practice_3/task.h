@@ -1,6 +1,9 @@
 #ifndef PRACTICE_3_TASK_H
 #define PRACTICE_3_TASK_H
 #include <cmath>
+#include <algorithm>
+#include <iostream>
+const double EPS = 1e-6;
 struct point {
     double x, y;
 
@@ -10,7 +13,11 @@ struct point {
 
     point operator*(double t) const { return point(t * x, t * y); }
 
-    point operator/(double t) const { return point(x / t, y / t); }
+    point operator/(double t) const {
+      if(abs(t)<EPS){
+        throw std::logic_error("Div by 0");
+      }
+      return point(x / t, y / t); }
 
     point operator+(const point &p) const { return point(x + p.x, y + p.y); }
 

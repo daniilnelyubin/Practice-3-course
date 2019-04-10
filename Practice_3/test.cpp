@@ -1,7 +1,7 @@
 #include "task.h"
 #include <gtest/gtest.h>
 
-const double EPS = 1e-6;
+
 
 TEST(structTest, input1) {
     point testPoint = point(1, 1);
@@ -48,10 +48,10 @@ TEST(structTest, operatorDiv2) {
     EXPECT_EQ(testPoint.x, -1);
     EXPECT_EQ(testPoint.y, -3);
 }
-//TEST(structTest, operatorDiv3) {
-//  EXPECT_THROW() point(2, 6) / 0;
-//
-//}
+TEST(structTest, operatorDiv3) {
+  EXPECT_THROW(point(2, 6) / 0,std::logic_error);
+
+}
 
 TEST(structTest, operatorPlus1) {
     point testPoint1 = point(-2, -2);
@@ -114,10 +114,10 @@ TEST(examples,example1){
     points[0].x=0;
     points[0].y=0;
     points[1].x=0;
-    points[1].y=0;
-    points[2].x=0;
+    points[1].y=4;
+    points[2].x=4;
     points[2].y=0;
-    EXPECT_EQ(task(3,3,1,points),0);
+    EXPECT_EQ(task(3,3,1,points),2);
 }
 TEST(examples,example2){
     point *points = new point[5];
@@ -132,4 +132,20 @@ TEST(examples,example2){
     points[4].x=0;
     points[4].y=4;
     EXPECT_EQ(task(5,1,1,points),1);
+}
+
+
+TEST(examples,example3){
+    point *points = new point[5];
+    points[0].x=0;
+    points[0].y=0;
+    points[1].x=0;
+    points[1].y=1;
+    points[2].x=0;
+    points[2].y=2;
+    points[3].x=0;
+    points[3].y=3;
+    points[4].x=0;
+    points[4].y=4;
+    EXPECT_THROW(task(5,1,1, nullptr),std::logic_error);
 }

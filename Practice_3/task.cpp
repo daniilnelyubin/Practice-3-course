@@ -9,6 +9,11 @@
 
 
 int task(int N,int R,int r,point* points) {
+
+    if (points== nullptr){
+      throw std::logic_error("Null ptr");
+    }
+
     const double EPS = 1e-6;
     if (N < 1) {
         throw std::logic_error("Count of cities <1");
